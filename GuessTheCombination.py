@@ -14,20 +14,20 @@ def guess():
     game = True
     combset = range(1111, 9999)
     random_combo = rn.choice(combset)
-    print(random_combo)
+    
     while game:
-        guess = int(input("Input your combination guess: "))
-        if guess > 9999 or guess < 0000:
+        guess = int(input("Input your combination guess: ")) # The first guess, before the hint.
+        if guess > 9999 or guess < 0000: # Error handling
             print("Number is out of range. Guess between 0000 and 9999.")
-        if guess == random_combo:
+        if guess == random_combo: # If combo is correct
             print("Correct combination")
             quit()
-        else:
+        else: # If combo is wrong.
             hint = input("Combination is wrong. Would you like a hint? (y/n)")
             if hint == "y":
                 print("The first two numbers of the combination is %.2s" % int(random_combo/100))
             if hint == "n":
-                guess = int(input("Input your combination guess:"))
+                guess = int(input("Input your combination guess:")) # Second round. There's only two rounds which keep repeating.
                 if guess > 9999 or guess < 0000:
                     print("Number is out of range. Guess between 0000 and 9999.")
         if guess == random_combo:
