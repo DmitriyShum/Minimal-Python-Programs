@@ -1,6 +1,6 @@
 # Author: Dmitriy.S - Dhotspot.dev
-# Date  : 07/17/25
-# Ver   : Release 1
+# Update: 08/04/25
+# Ver   : Release 1.1
 # About : This is a combination guess game, where the user guesses a four digit combination. 
 # If it's wrong, they get a hint, and until the combination is correct, the user can keep guessing. I did not include running_time for this program, so people don't get confused with the numbers.
 
@@ -14,11 +14,13 @@ def guess():
     game = True
     combset = range(1111, 9999)
     random_combo = rn.choice(combset)
-    
+    print(random_combo)
     while game:
         guess = int(input("Input your combination guess: ")) # The first guess, before the hint.
         if guess > 9999 or guess < 0000: # Error handling
             print("Number is out of range. Guess between 0000 and 9999.")
+        if guess > random_combo - 100 or guess < random_combo - 100:
+             print("Getting warmer!")
         if guess == random_combo: # If combo is correct
             print("Correct combination")
             quit()
