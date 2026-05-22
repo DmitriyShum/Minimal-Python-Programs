@@ -19,8 +19,6 @@ def CombinationGuess():
         if guess == random_combo: # If combo is correct
             print("Correct combination!")
             break
-        if abs(guess - random_combo) == 20:
-             print("Guess combination is 20 numbers off!")
         else: # If combo is wrong.
             hint = input("Combination is wrong. Would you like a hint? (y/n)")
             if hint == "y":
